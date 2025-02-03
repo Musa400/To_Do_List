@@ -1,0 +1,548 @@
+/* Futuristic Todo List Advanced Styling */
+:root {
+  /* Enhanced Color Palette */
+  --color-background-primary: #1a1a2e;
+  --color-background-secondary: #16213e;
+  --color-background-tertiary: #0f3460;
+  --color-accent-primary: #e94560;
+  --color-accent-secondary: #6a5acd;
+  --color-accent-tertiary: #00ff87;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #c0c0c0;
+  
+  /* Advanced Background Layers */
+  --background-overlay-1: rgba(26, 26, 46, 0.8);
+  --background-overlay-2: rgba(22, 33, 62, 0.6);
+  
+  /* Advanced Transitions */
+  --transition-primary: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Advanced Shadows */
+  --shadow-primary: 0 15px 35px rgba(233, 69, 96, 0.1);
+  --shadow-secondary: 0 5px 15px rgba(106, 90, 205, 0.2);
+}
+
+/* Quantum Keyframe Animations */
+@keyframes quantum-pulse {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg); 
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    transform: scale(1.05) rotate(5deg); 
+    filter: hue-rotate(180deg);
+  }
+}
+
+@keyframes particle-flow {
+  0% { 
+    background-position: 0% 50%; 
+    opacity: 0.7;
+  }
+  50% { 
+    background-position: 100% 50%; 
+    opacity: 1;
+  }
+  100% { 
+    background-position: 0% 50%; 
+    opacity: 0.7;
+  }
+}
+
+@keyframes neon-glow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px var(--color-accent-primary),
+      0 0 10px var(--color-accent-secondary);
+  }
+  50% { 
+    text-shadow: 
+      0 0 15px var(--color-accent-primary),
+      0 0 25px var(--color-accent-secondary);
+  }
+}
+
+@keyframes holographic-wave {
+  0% { 
+    background-position: 0% 50%; 
+    transform: perspective(500px) rotateY(0deg);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    transform: perspective(500px) rotateY(10deg);
+  }
+  100% { 
+    background-position: 0% 50%; 
+    transform: perspective(500px) rotateY(0deg);
+  }
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes CosmicBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Quantum Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-primary) transparent;
+}
+
+body {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-background-primary);
+  background-image: 
+    radial-gradient(circle at top right, var(--color-accent-primary), transparent 20%),
+    radial-gradient(circle at bottom left, var(--color-accent-secondary), transparent 20%),
+    linear-gradient(135deg, var(--color-background-secondary), var(--color-background-tertiary));
+  background-size: 400% 400%;
+  animation: CosmicBackground 20s ease infinite;
+  min-height: 100vh;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1500px;
+  overflow-x: hidden;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    repeating-radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(233, 69, 96, 0.1) 0,
+      rgba(106, 90, 205, 0.1) 50px
+    );
+  opacity: 0.5;
+  z-index: -1;
+}
+
+#root {
+  width: 100%;
+  max-width: 700px;
+  padding: 2rem;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Quantum Container */
+.todo-list-container {
+  background: linear-gradient(
+    145deg, 
+    rgba(17, 19, 40, 0.9) 0%, 
+    rgba(10, 10, 26, 0.95) 100%
+  );
+  border-radius: 25px;
+  padding: 50px;
+  box-shadow: 
+    var(--shadow-primary),
+    var(--shadow-secondary),
+    0 0 50px rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: 
+    perspective(1000px) 
+    rotateX(5deg) 
+    rotateY(-5deg);
+  transition: var(--transition-primary);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  backdrop-filter: blur(15px);
+}
+
+.todo-list-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(
+      circle at center, 
+      rgba(0, 255, 255, 0.1) 0%, 
+      transparent 70%
+    ),
+    linear-gradient(
+      45deg, 
+      var(--color-accent-primary), 
+      var(--color-accent-secondary)
+    );
+  background-size: 400% 400%;
+  animation: 
+    particle-flow 15s ease infinite,
+    holographic-wave 10s linear infinite;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.todo-list-container:hover {
+  transform: 
+    perspective(1000px) 
+    rotateX(0) 
+    rotateY(0) 
+    scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(0, 255, 255, 0.3),
+    0 15px 35px rgba(255, 0, 255, 0.2);
+  border-color: var(--color-accent-primary);
+}
+
+/* Quantum Typography */
+.todo-list-container h1 {
+  text-align: center;
+  color: var(--color-text-primary);
+  margin-bottom: 40px;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  background: linear-gradient(
+    45deg, 
+    var(--color-accent-primary), 
+    var(--color-accent-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 
+    neon-glow 3s infinite,
+    quantum-pulse 5s infinite;
+  position: relative;
+  perspective: 500px;
+}
+
+.todo-list-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 6px;
+  background: linear-gradient(
+    to right, 
+    var(--color-accent-primary), 
+    var(--color-accent-secondary)
+  );
+  border-radius: 3px;
+  box-shadow: 
+    0 0 10px var(--color-accent-primary),
+    0 0 20px var(--color-accent-secondary);
+}
+
+/* Quantum Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+  perspective: 1000px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 18px;
+  background: rgba(17, 19, 40, 0.7);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  border-radius: 15px;
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  transition: var(--transition-primary);
+  outline: none;
+  backdrop-filter: blur(10px);
+  transform-style: preserve-3d;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-accent-primary);
+  box-shadow: 
+    0 0 0 3px rgba(0, 255, 255, 0.3),
+    0 10px 20px rgba(0, 255, 255, 0.1);
+  transform: translateZ(20px);
+}
+
+/* Quantum Button Styles */
+button {
+  padding: 18px 30px;
+  background: linear-gradient(
+    45deg, 
+    var(--color-accent-primary), 
+    var(--color-accent-secondary)
+  );
+  color: var(--color-background-primary);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition-primary);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 10px 20px rgba(0, 255, 255, 0.2),
+    0 5px 10px rgba(255, 0, 255, 0.1);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg, 
+    transparent, 
+    rgba(255,255,255,0.3), 
+    transparent
+  );
+  transition: var(--transition-primary);
+}
+
+button:hover {
+  transform: 
+    translateZ(30px) 
+    scale(1.05) 
+    rotate(2deg);
+  box-shadow: 
+    0 15px 30px rgba(0, 255, 255, 0.3),
+    0 10px 20px rgba(255, 0, 255, 0.2);
+}
+
+button:active {
+  transform: 
+    translateZ(10px) 
+    scale(0.95);
+}
+
+/* Quantum Todo Item Styles */
+.todos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  perspective: 1500px;
+}
+
+.todo-item {
+  background-color: var(--background-overlay-2);
+  border-left: 4px solid var(--color-accent-tertiary);
+  background: rgba(17, 19, 40, 0.7);
+  border: 2px solid rgba(0, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: var(--transition-primary);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-20px);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 5px 15px rgba(0, 255, 255, 0.1),
+    0 3px 10px rgba(255, 0, 255, 0.05);
+}
+
+.todo-item:hover {
+  transform: 
+    translateZ(20px) 
+    scale(1.03) 
+    rotateX(5deg);
+  box-shadow: 
+    0 15px 30px rgba(0, 255, 255, 0.2),
+    0 10px 20px rgba(255, 0, 255, 0.1);
+  border-color: var(--color-accent-primary);
+}
+
+.todo-item h3 {
+  color: var(--color-text-primary);
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.todo-item p {
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.todo-item.completed h3 {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.todo-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg, 
+    transparent, 
+    var(--color-accent-primary), 
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.todo-item:hover::after {
+  opacity: 0.2;
+}
+
+/* Quantum Todo Actions */
+.todo-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.todo-actions button {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.todo-actions button:nth-child(2) {
+  background: linear-gradient(
+    45deg, 
+    #00ffff, 
+    #00ff00
+  );
+}
+
+.todo-actions button:nth-child(3) {
+  background: linear-gradient(
+    45deg, 
+    #ff00ff, 
+    #ff0000
+  );
+}
+
+/* Quantum Checkbox */
+.todo-actions input[type="checkbox"] {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--color-accent-primary);
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-primary);
+  background: rgba(0, 255, 255, 0.1);
+  transform-style: preserve-3d;
+}
+
+.todo-actions input[type="checkbox"]:checked {
+  background: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  transform: translateZ(10px);
+}
+
+.todo-actions input[type="checkbox"]:checked::after {
+  content: '✔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-background-primary);
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .todo-list-container {
+    padding: 30px;
+    transform: none;
+  }
+
+  .todo-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+}
+
+/* Quantum Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom, 
+    var(--color-accent-primary), 
+    var(--color-accent-secondary)
+  );
+  border-radius: 10px;
+}
+
+/* Quantum Accessibility */
+*:focus {
+  outline: 3px solid var(--color-accent-primary);
+  outline-offset: 3px;
+  animation: quantum-pulse 0.5s;
+}
+
+/* Enhanced container styles */
+.app-container {
+  background: var(--background-overlay-1);
+  border-radius: 15px;
+  box-shadow: 
+    0 15px 35px rgba(233, 69, 96, 0.1),
+    0 5px 15px rgba(106, 90, 205, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  margin: 30px;
+  position: relative;
+  overflow: hidden;
+}
